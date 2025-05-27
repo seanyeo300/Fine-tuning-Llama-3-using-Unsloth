@@ -11,11 +11,11 @@ This section outlines my evolving curriculum for mastering LLM fine-tuning. It i
 
 ---
 
-### 📘 Phase 1: Foundations of LLMs and Fine-tuning
 
+<details>
+<summary><strong>🚦Roadmap</strong></summary>
 
-### 📘 Phase 1: Foundations of LLMs and Fine-tuning
-
+ ### 📘 Phase 1: Foundations of LLMs and Fine-tuning
 - ✔️ Understand the Transformer architecture (Vaswani et al.)
 - ❌ Review LLaMA 1/2/3 architectures (differences, improvements)
 - ❌ Introduction to language modelling objectives (causal LM, MLM)
@@ -79,7 +79,7 @@ This section outlines my evolving curriculum for mastering LLM fine-tuning. It i
 ---
 
 _This roadmap is continuously evolving. Contributions, suggestions, and corrections are welcome._
-
+</details>
 
 <h2>Languages and Utilities Used</h2>
 
