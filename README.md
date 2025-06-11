@@ -1,105 +1,91 @@
-<h1>Fine-tuning-LLaMA-3-using-Unsloth</h1>
+# Fine-tuning LLaMA 3.1 Using Unsloth for Legal Domain Specialisation
 
- <h2>Description</h2>
-This repository documents my learning journey for fine-tuning LLaMA 3. Feel free to follow along using the curriculum provided.
+## 📄 Description
 
-<br />
+This repository documents my ongoing work in adapting Meta’s LLaMA 3.1 8B model for domain-specific applications in Singaporean law. It builds upon and extends the excellent work from [`xuyangbocn/LLM-RAG-singapore-lawyer`](https://github.com/xuyangbocn/LLM-RAG-singapore-lawyer), which establishes a RAG pipeline for statute-based question answering.
 
-## 🧠 Planned Curriculum: LLM Fine-tuning with LLaMA 3 + Unsloth
+My objectives include:
 
-This section outlines my evolving curriculum for mastering LLM fine-tuning. It is structured progressively, from foundational concepts to advanced techniques, with a hands-on emphasis using the [Unsloth](https://github.com/unslothai/unsloth) framework and Meta's LLaMA 3 models.
+- Specialising the embedding model via LoRA fine-tuning using [Unsloth](https://github.com/unslothai/unsloth)
+- Aligning the model outputs to legal standards through Reinforcement Learning with Human Feedback (RLHF) in collaboration with a professional lawyer
+- Deploying an offline-ready LLM for legal document summarisation and retrieval
 
 ---
 
+## 🧠 Project Scope and Roadmap
 
 <details>
-<summary><strong>🚦Roadmap</strong></summary>
+<summary><strong>🚀 Project Phases</strong></summary>
 
- ### 📘 Phase 1: Foundations of LLMs and Fine-tuning
-- ✔️ Understand the Transformer architecture (Vaswani et al.)
-- ❌ Review LLaMA 1/2/3 architectures (differences, improvements)
-- ❌ Introduction to language modelling objectives (causal LM, MLM)
-- ❌ Overview of fine-tuning vs instruction tuning vs RLHF
-- ❌ Learn about parameter-efficient fine-tuning (PEFT) and LoRA
+### ✅ Phase 0: Baseline RAG Framework (Completed)
 
----
-
-### 🔧 Phase 2: Setting Up the Fine-tuning Stack
-
-- ❌ Environment setup (CUDA, PyTorch, Transformers, Unsloth)
-- ❌ Familiarise with Unsloth's LLaMA 3 API and model loading
-- ❌ Tokenizer and data preprocessing pipeline
-- ❌ Understand memory usage, model quantisation (4-bit/8-bit)
+- ✔️ Investigated and adapted the `LLM-RAG-singapore-lawyer` architecture
+- ✔️ Performed chunking and metadata tagging of legal statutes (PDFs)
+- ✔️ Developed an initial RAG pipeline for legal QA using `LangChain`, `FAISS`, and `OpenChat`
 
 ---
 
-### 🧪 Phase 3: Basic Fine-tuning
+### ⚙️ Phase 1: Domain-Specific Embedding Fine-tuning (In Progress)
 
-- ❌ Fine-tune LLaMA 3 using small datasets (e.g. Alpaca format)
-- ❌ Use LoRA with Unsloth for efficient training
-- ❌ Evaluate using perplexity and qualitative completions
-- ❌ Save and resume training from checkpoints
-
----
-
-### 🧭 Phase 4: Instruction and Chat Fine-tuning
-
-- ❌ Understand chat templates (e.g. `chatml`, `alpaca`, `zephyr`)
-- ❌ Curate or format instruction-tuning datasets (e.g. ShareGPT, OpenHermes)
-- ❌ Evaluate model responses using prompt-response format
-- ❌ Apply techniques for avoiding mode collapse / overfitting
+- ❌ Fine-tune LLaMA 3.1 8B embeddings using LoRA via Unsloth
+- ❌ Prepare legal-specific contrastive data (e.g., semantically similar/dissimilar statute pairs)
+- ❌ Use quantised training (4-bit QLoRA) for efficient compute usage
+- ❌ Evaluate domain specialisation using retrieval recall and legal topic clustering
 
 ---
 
-### 🧠 Phase 5: Advanced Topics
+### 🧑‍⚖️ Phase 2: RLHF with Legal Expert
 
-- ❌ Data curriculum learning (easy-to-hard instance ordering)
-- ❌ Custom reward models and early stopping heuristics
-- ❌ Multi-turn conversation alignment
-- ❌ Multi-objective fine-tuning (e.g. factuality + helpfulness)
-
----
-
-### ⚙️ Phase 6: Experiment Tracking and Optimisation
-
-- ❌ Integrate with Weights & Biases or MLflow
-- ❌ Profile memory and compute usage
-- ❌ Hyperparameter tuning strategies (batch size, lr, scheduler)
-- ❌ Ablation studies on LoRA ranks, dataset size, prompt formats
+- ❌ Collect human preference data on model completions from a practising lawyer
+- ❌ Train a reward model to reflect legal accuracy, helpfulness, and clarity
+- ❌ Apply PPO or DPO for alignment with legal preferences
+- ❌ Evaluate using legal benchmarks and human qualitative assessments
 
 ---
 
-### 📤 Phase 7: Deployment and Sharing
+### 🧪 Phase 3: Experimental Improvements (Planned)
 
-- ❌ Convert and quantise model for inference (GGUF, ONNX, etc.)
-- ❌ Serve model using vLLM or Text Generation Inference
-- ❌ Create Gradio/HF Spaces demo
-- ❌ Publish LoRA adapters to Hugging Face Hub
+- ❌ Investigate data curriculum learning for legal tasks (e.g., by statute complexity)
+- ❌ Explore multi-turn dialogue alignment in legal consultations
+- ❌ Test multi-objective RLHF with factuality and compliance scores
 
 ---
 
-_This roadmap is continuously evolving. Contributions, suggestions, and corrections are welcome._
+### 📤 Phase 4: Deployment
+
+- ❌ Convert and quantise the model (GGUF/ONNX) for offline inference
+- ❌ Integrate with lightweight web UI (e.g., Gradio)
+- ❌ Package as a containerised app with offline RAG + inference capabilities
+
 </details>
 
-<h2>Languages and Utilities Used</h2>
+---
 
-- <b>Python >=3.9; <=3.12  </b> 
-- <b>Unsloth</b>
+## 🛠 Languages and Frameworks
 
-Installation instructions for unsloth on Windows can be found [here](https://docs.unsloth.ai/get-started/installing-+-updating/windows-installation)
+- **Python**: >= 3.9 and <= 3.12  
+- **Unsloth** for efficient LoRA fine-tuning  
+- **LangChain**, **FAISS**, **HuggingFace Transformers**
+- **PyTorch**, **PEFT**, **RLHF tooling (TRL/DPO)**
 
-<h2>Environments Used </h2>
+> Note: Unsloth installation on Windows is documented [here](https://docs.unsloth.ai/get-started/installing-+-updating/windows-installation)
 
-- <b>Windows 11</b> (Pro)
+---
 
+## 💻 Development Environment
 
+- **Operating System**: Windows 11 Pro  
+- **Target Hardware**: Consumer-grade GPU (8-24 GB VRAM) or cloud-based A100s for RLHF
 
-<!--
- ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
---!>
+---
+
+## 🔗 Credits and References
+
+- [LLM-RAG-singapore-lawyer](https://github.com/xuyangbocn/LLM-RAG-singapore-lawyer)
+- [Unsloth](https://github.com/unslothai/unsloth)
+- [Hugging Face PEFT](https://github.com/huggingface/peft)
+- [TRL (Transformers Reinforcement Learning)](https://github.com/huggingface/trl)
+
+---
+
+_This repository is maintained monthly and may not reflect the latest developments and updates. Please contact the author for the latest discussions. Feedback, suggestions, and collaborations are welcome._
