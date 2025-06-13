@@ -27,8 +27,8 @@ My objectives include:
 
 ### ⚙️ Phase 1: Domain-Specific Embedding Fine-tuning (In Progress)
 
-- ❌ Fine-tune LLaMA 3.1 8B embeddings using LoRA via Unsloth
 - ❌ Prepare legal-specific contrastive data (e.g., semantically similar/dissimilar statute pairs)
+- ❌ Fine-tune LLaMA 3.1 8B embeddings using LoRA via Unsloth
 - ❌ Use quantised training (4-bit QLoRA) for efficient compute usage
 - ❌ Evaluate domain specialisation using retrieval recall and legal topic clustering
 
